@@ -1,0 +1,14 @@
+---
+- name: "playbook for ping system and display details of files"
+  hosts: localhost
+
+  tasks:
+
+  - name: "testing the reachability"
+    ping:
+
+  - name: "display details of multiple files"
+    ansible.builtin.debug: var=item
+    with_file:
+      - "~/poem1.txt"
+      - "~/poem2.txt"
