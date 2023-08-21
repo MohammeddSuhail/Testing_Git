@@ -1,0 +1,31 @@
+---
+# tasks file for generate_tar
+
+- name: Read cusumer from CSV file and return a dictionary
+  community.general.read_csv:
+    path: roles/generate_tar/files/cust.csv
+  register: custu
+    
+    
+- name: "getting that perticular record and storing in rec variable"
+  set_fact: 
+    rec: "{{item}}"
+  when: item.Customer == customer_name 
+  with_items: '{{custu.list}}'
+    
+    
+- name: "setting accesssed_by to psql if POSTGRESQL"
+  set_fact: 
+    accesssed_by: "psql"
+  when: rec.ICG_VSAM_DB == "POSTGRESQL"
+    
+      
+- name: "setting accesssed_by to sql plus if ORACLE"
+  set_fact: 
+    accesssed_by: "sql plus"
+  when: rec.ICG_VSAM_DB == "ORACLE"
+    
+- name: "using template to display"
+  template:
+    src: roles/generate_tar/templates/temp_disp.j2
+    dest: '{{customer_name}}' 

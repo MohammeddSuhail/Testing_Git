@@ -1,0 +1,14 @@
+Customer: {{rec.Customer}}
+{% if True -%}
+Modules: 
+{%- endif %}
+{% set comma = joiner(",") %}
+{% for key, value in rec.items() %}
+{% if value == "a" -%}
+{{ comma() }}{{ " "+ key}} 
+{%- endif %}
+{% endfor %}
+
+{{rec.Customer}} uses a {% if rec.ICG_VSAM_DB == "" -%}
+{{ "VSAM" }} 
+{%- endif %}{{rec.ICG_VSAM_DB|title}} Database, meaning they access it through {{accesssed_by| default('COBOL and CICS')}}
