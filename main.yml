@@ -1,0 +1,9 @@
+---
+- name: "playbook for ping system and display details of files"
+  hosts: myHosts
+  
+  tasks:
+  
+  - name: Include Role
+    debug: 
+    msg: "Hi ~ Ansible"
