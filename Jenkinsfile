@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     parameters {
-        choice (name: 'cus_name',
+        choice (name: 'customer_name',
             choices:  ['ADIQ','Arab_Financial_Services_AFS', 'Bank_of_Abyssinia_BoA', 'Currency_Select', 'Dashen', 'Dock_Conductor_CDT', 
             'Green_Dot', 'ING', 'NBE', 'PayGo_C6', 'PNMS _Argentina_GetNet_SMPS', 'PNMS _Mexico_GetNet_SMPS', 'Retail_Assist', 'Shift4', 
             'TietoEVRY_Sweden', 'Base', 'NETS', 'PNMS', 'Redeban', 'EIT', 'KUVAS', 'LOGBANK', 'CMM_ED', 'NovoPayment', 'Datafast', 'PTBANK', 
