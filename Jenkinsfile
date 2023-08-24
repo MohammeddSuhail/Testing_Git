@@ -3,7 +3,10 @@ pipeline {
     
     parameters {
         choice (name: 'customer_name',
-            choices:  ['ADIQ','Arab_Financial_Services_AFS', 'Bank_of_Abyssinia_BoA', 'Currency_Select', 'Dashen', 'Dock_Conductor_CDT', 'Green_Dot', 'ING', 'NBE', 'PayGo_C6', 'PNMS _Argentina_GetNet_SMPS', 'PNMS _Mexico_GetNet_SMPS', 'Retail_Assist', 'Shift4', 'TietoEVRY_Sweden', 'Base', 'NETS', 'PNMS', 'Redeban', 'EIT', 'KUVAS', 'LOGBANK', 'CMM_ED', 'NovoPayment', 'Datafast', 'PTBANK', 'ICG_ISS', 'ABN_AMRO', 'NonBase', 'PNMS_CHILE', 'Frost_Bank', 'KIWI', 'Synechron'],
+            choices:  ['ADIQ','Arab_Financial_Services_AFS', 'Bank_of_Abyssinia_BoA', 'Currency_Select', 'Dashen', 'Dock_Conductor_CDT', 
+                       'Green_Dot', 'ING', 'NBE', 'PayGo_C6', 'PNMS _Argentina_GetNet_SMPS', 'PNMS _Mexico_GetNet_SMPS', 'Retail_Assist', 
+                       'Shift4', 'TietoEVRY_Sweden', 'Base', 'NETS', 'PNMS', 'Redeban', 'EIT', 'KUVAS', 'LOGBANK', 'CMM_ED', 'NovoPayment', 
+                       'Datafast', 'PTBANK', 'ICG_ISS', 'ABN_AMRO', 'NonBase', 'PNMS_CHILE', 'Frost_Bank', 'KIWI', 'Synechron'],
             description: 'Enter Your Customer name')
 
         string(name: 'zipFile_name',
