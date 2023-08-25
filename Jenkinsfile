@@ -37,7 +37,7 @@ pipeline {
                             scm: [$class: 'GitSCM',
                                 branches: [[name: 'main']],
                                 extensions: [],
-                                userRemoteConfigs: [url: 'git@github.com:MohammeddSuhail/Testing_Git.git']]]
+                                userRemoteConfigs: [[url: 'git@github.com:MohammeddSuhail/Testing_Git.git']]]
 
         
         
