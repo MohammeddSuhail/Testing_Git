@@ -6,7 +6,6 @@ properties([
       name: 'Environment',
       script: [$class: 'ScriptlerScript',
                groovyScript:'''
-      import groovy.json.JsonSlurper
       return ["Select:selected", "DEV", "TEST", "STAGE", "PROD"]
       ''']
     ],
