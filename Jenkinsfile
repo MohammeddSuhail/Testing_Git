@@ -5,6 +5,7 @@ properties([
       choiceType: 'PT_SINGLE_SELECT',
       name: 'Environment',
       groovyScript: '''
+      import groovy.json.JsonSlurper
       return ["Select:selected", "DEV", "TEST", "STAGE", "PROD"]
       '''
     ],
