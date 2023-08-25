@@ -32,15 +32,6 @@ pipeline {
       steps {
 
         steps{
-                checkout    changelog: false,
-                            poll: false,
-                            scm: [$class: 'GitSCM',
-                                branches: [[name: 'main']],
-                                extensions: [],
-                                userRemoteConfigs: [[url: 'git@github.com:MohammeddSuhail/Testing_Git.git']]]
-
-        
-        
         echo "${params.Environment}"
         echo "${params.Host}"
       }
