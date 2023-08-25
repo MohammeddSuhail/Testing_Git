@@ -4,10 +4,11 @@ properties([
       $class: 'ChoiceParameter',
       choiceType: 'PT_SINGLE_SELECT',
       name: 'Environment',
-      script: '''
+      script: [$class: 'ScriptlerScript',
+               groovyScript:'''
       import groovy.json.JsonSlurper
       return ["Select:selected", "DEV", "TEST", "STAGE", "PROD"]
-      '''
+      ''']
     ],
     [
       $class: 'CascadeChoiceParameter',
