@@ -6,7 +6,7 @@ properties([
       name: 'Environment',
       script: [
         $class: 'ScriptlerScript',
-        scriptlerScriptId:'${rootDir}@script/Environments.groovy'
+        scriptlerScriptId:'Environments.groovy'
       ]
     ],
     [
@@ -30,12 +30,9 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-
-        steps{
         echo "${params.Environment}"
         echo "${params.Host}"
       }
     }
-   }
- }
+  }
 }
