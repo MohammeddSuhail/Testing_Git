@@ -6,7 +6,7 @@ properties([
       name: 'Environment',
       script: [
         $class: 'GroovyScript',
-        script: 'return ["DEV", "TEST", "STAGE", "PROD"]'
+        script: 'return ["Select:selected", "DEV", "TEST", "STAGE", "PROD"]'
       ]
     ],
     [
