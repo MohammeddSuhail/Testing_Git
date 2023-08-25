@@ -4,7 +4,7 @@ properties([
       $class: 'ChoiceParameter',
       choiceType: 'PT_SINGLE_SELECT',
       name: 'Environment',
-      groovyScript: '''
+      script: '''
       import groovy.json.JsonSlurper
       return ["Select:selected", "DEV", "TEST", "STAGE", "PROD"]
       '''
