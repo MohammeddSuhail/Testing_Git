@@ -30,6 +30,17 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+
+        steps{
+                checkout    changelog: false,
+                            poll: false,
+                            scm: [$class: 'GitSCM',
+                                branches: [[name: 'main']],
+                                extensions: [],
+                                userRemoteConfigs: [url: 'ssh://git@bitbucket.am.tsacorp.com:7999/aa/cmm_interchange.git']]]
+
+        
+        
         echo "${params.Environment}"
         echo "${params.Host}"
       }
