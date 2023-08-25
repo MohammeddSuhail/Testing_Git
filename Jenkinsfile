@@ -6,7 +6,7 @@ properties([
       name: 'Environment',
       script: [
         $class: 'ScriptlerScript',
-        scriptlerScriptId:'Environments.groovy'
+        scriptlerScriptId:'C:\Users\suhails\Downloads\Environments.groovy'
       ]
     ],
     [
