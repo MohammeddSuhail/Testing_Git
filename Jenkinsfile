@@ -4,10 +4,10 @@ properties([
       $class: 'ChoiceParameter',
       choiceType: 'PT_SINGLE_SELECT',
       name: 'Environment',
-      script: [$class: 'ScriptlerScript',
-               scriptlerScript:'''
-      return ["Select:selected", "DEV", "TEST", "STAGE", "PROD"]
-      ''']
+      script: [
+        $class: 'ScriptlerScript',
+        scriptlerScriptId:'Environments.groovy'
+      ]
     ],
     [
       $class: 'CascadeChoiceParameter',
