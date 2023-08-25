@@ -5,7 +5,7 @@ properties([
       choiceType: 'PT_SINGLE_SELECT',
       name: 'Environment',
       script: [$class: 'ScriptlerScript',
-               groovyScript:'''
+               scriptlerScript:'''
       return ["Select:selected", "DEV", "TEST", "STAGE", "PROD"]
       ''']
     ],
