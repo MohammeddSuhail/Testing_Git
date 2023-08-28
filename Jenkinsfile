@@ -10,10 +10,12 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        if (params.Region == 'JENKIVP') {
-          echo "ivp: ${params.Region}"
-        }else{
-          echo "rel: ${params.Region}"
+        script{
+          if (params.Region == 'JENKIVP') {
+            echo "ivp: ${params.Region}"
+          }else{
+            echo "rel: ${params.Region}"
+          }
         }
       }
     }
