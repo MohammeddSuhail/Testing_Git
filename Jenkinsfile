@@ -1,12 +1,12 @@
-properties([
+pipeline {
+  agent any
+
   parameters{
     choice (name: 'Region',
             choices:  ['JENKIVP','JENKREL'],
             description: 'Select the Region')
   }
-
-pipeline {
-  agent any
+  
   stages {
     stage('Build') {
       steps {
