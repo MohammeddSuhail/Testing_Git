@@ -1,9 +1,9 @@
 properties([
-  parameters(
+  parameters{
     choice (name: 'Region',
             choices:  ['JENKIVP','JENKREL'],
             description: 'Select the Region')
-  )
+  }
 
 pipeline {
   agent any
