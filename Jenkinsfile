@@ -2,9 +2,7 @@ pipeline {
   agent any
 
   parameters{
-    choice (name: 'Region',
-            choices:  ['JENKIVP','JENKREL'],
-            description: 'Select the Region')
+    choice choices: ['JENKIVP','JENKREL'], name: 'Region'
   }
   
   stages {
