@@ -12,7 +12,7 @@ pipeline {
         string defaultValue: '', name: 'icg_schema', description: 'Enter the ICG schema name.'
         string defaultValue: '', name: 'acq_schema', description: 'Enter the linked ACQ schema name.'
 
-        extendedChoice(name: 'Port Selection', description: 'Select the port configuration method.', type: 'PT_RADIO', value: 'Auto-Detect Ports, Manual Port Entry')
+        extendedChoice(name: 'Port_Selection', description: 'Select the port configuration method.', type: 'PT_RADIO', value: 'Auto-Detect Ports, Manual Port Entry')
     
         string defaultValue: '', name: 'tpe_port', description: 'Enter an unused TPE server port.'
         string defaultValue: '', name: 'tns_port', description: 'Enter an unused J3270 port.'
@@ -23,7 +23,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo params.region_name
+        echo params.Port_Selection
       }
     }
   }
