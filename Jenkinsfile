@@ -17,6 +17,8 @@ pipeline {
         string defaultValue: '', name: 'tpe_port', description: 'Enter an unused TPE server port.'
         string defaultValue: '', name: 'tns_port', description: 'Enter an unused J3270 port.'
         string defaultValue: '', name: 'tls_port', description: 'Enter an unused TPE server TLS port.'
+
+        string defaultValue: '79', name: 'Tools_Build_ID', description: 'Enter a tools build id.'
     
   }
   
