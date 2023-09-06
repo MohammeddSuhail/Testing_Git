@@ -16,6 +16,8 @@ pipeline {
         string defaultValue: '', name: 'tpe_port', description: 'Enter an unused TPE server port.'
         string defaultValue: '', name: 'tns_port', description: 'Enter an unused J3270 port.'
         string defaultValue: '', name: 'tls_port', description: 'Enter an unused TPE server TLS port.'
+
+        extendedChoice(name: 'DeployTo', description: 'Select the environment to deploy to', type: 'PT_RADIO', value: 'Dev,Test,Stage', visibleItemCount: 5)
   }
   
   stages {
