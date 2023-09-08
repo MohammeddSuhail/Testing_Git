@@ -1,7 +1,8 @@
 pipeline {
   agent any
 
-  parameters{
+  parameters {
+        extendedChoice(name: 'Region_Action', description: 'Select an action for regions.', type: 'PT_RADIO', value: 'Create a Region, Delete a Region')
         string name: 'region_name', description: 'Enter the region name.'
         string name: 'linked_region_name', description: 'Enter the name of the ACQ region to link with.'
         string name: 'linked_region_path', description: 'Enter the path of the ACQ region to link with.'
@@ -14,13 +15,39 @@ pipeline {
         string name: 'tns_port', description: 'Enter an unused J3270 port.'
         string name: 'tls_port', description: 'Enter an unused TPE server TLS port.'
         string name: 'Tools_Build_ID', description: 'Enter a tools build id.'
-  }
-  
-  stages {
-    stage('Build') {
-      steps {
-        echo params.Port_Selection
-      }
     }
-  }
+    
+    stages {
+        
+        stage("[Linux] Create new IVP region"){
+            agent {
+                label 'NRC3LING01VM'
+            }
+            when {
+                expression { return params.Region_Action == "Create a Region" }
+            }
+            steps{
+                script {
+                    echo "creation of region"
+                }
+            }
+        }
+
+
+
+        stage("[Linux] Delete old IVP region"){
+            agent {
+                label 'NRC3LING01VM'
+            }
+            when {
+                expression { return params.Region_Action == "Delete a Region" }
+            }
+            steps{
+                script {
+                    echo "deletion of region"
+                }
+            }
+        }
+
+    }
 }
