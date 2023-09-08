@@ -20,9 +20,6 @@ pipeline {
     stages {
         
         stage("[Linux] Create new IVP region"){
-            agent {
-                label 'NRC3LING01VM'
-            }
             when {
                 expression { return params.Region_Action == "Create a Region" }
             }
@@ -36,9 +33,6 @@ pipeline {
 
 
         stage("[Linux] Delete old IVP region"){
-            agent {
-                label 'NRC3LING01VM'
-            }
             when {
                 expression { return params.Region_Action == "Delete a Region" }
             }
