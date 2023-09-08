@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   parameters {
-        extendedChoice(name: 'Region_Action', description: 'Select an action for regions. Note: Choose "Delete a Region" option only if Region already exists', type: 'PT_RADIO', value: 'Create a Region, Delete a Region')
+        extendedChoice(name: 'Region_Action', description: 'Select an action for regions.\nNote: Choose "Delete a Region" option only if Region already exists', type: 'PT_RADIO', value: 'Create a Region, Delete a Region')
         string name: 'region_name', description: 'Enter the region name.'
         string name: 'linked_region_name', description: 'Enter the name of the ACQ region to link with.'
         string name: 'linked_region_path', description: 'Enter the path of the ACQ region to link with.'
