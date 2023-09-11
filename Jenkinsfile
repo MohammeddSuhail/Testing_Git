@@ -18,6 +18,16 @@ pipeline {
     }
     
     stages {
+
+      stage("Verifying parameter values"){
+            steps{
+                script {
+                    if (params.Port_Selection == 'Auto-Detect Ports') {
+                        
+                    } 
+                }
+            }
+        }
         
         stage("[Linux] Create new IVP region"){
             when {
