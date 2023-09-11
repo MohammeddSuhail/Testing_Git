@@ -22,20 +22,25 @@ pipeline {
       stage("Verifying parameter values"){
             steps{
                 script {
-                    if (params.Port_Selection == 'Auto-Detect Ports') {
-                        
-                    } 
+                    if (params.Database_Type.equals("Oracle")) {
+                        env.config_file = "region_config_ora";
+                        env.db_type = "Oracle";
+                    }else{
+                        env.db_type = "Postgres"; //echo env.db_type
+                        env.config_file = "region_config_pg";
+                    }
                 }
             }
         }
         
         stage("[Linux] Create new IVP region"){
-            when {
-                expression { return params.Region_Action == "Create a Region" }
-            }
             steps{
                 script {
-                    echo "creation of region"
+                    
+                    echo "$db_type";
+                    echo "$config_file";
+                    echo "creation of region";
+                    
                 }
             }
         }
@@ -43,9 +48,6 @@ pipeline {
 
 
         stage("[Linux] Delete old IVP region"){
-            when {
-                expression { return params.Region_Action == "Delete a Region" }
-            }
             steps{
                 script {
                     echo "deletion of region"
