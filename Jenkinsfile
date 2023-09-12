@@ -3,7 +3,7 @@ pipeline {
 
   parameters {
         extendedChoice(name: 'Region_Action', description: 'Select an action for regions. Note: Choose "Delete a Region" option only if Region already exists.', type: 'PT_CHECKBOX', value: 'Create a Region, Delete a Region')
-        booleanParam name: 'Smoke_Test', description: 'Perform Smoke Test?'
+        booleanParam defaultValue: true, name: 'Smoke_Test', description: 'Perform Smoke Test?'
         string name: 'region_name', description: 'Enter the region name.'
         string name: 'linked_region_name', description: 'Enter the name of the ACQ region to link with.'
         string name: 'linked_region_path', description: 'Enter the path of the ACQ region to link with.'
@@ -23,6 +23,13 @@ pipeline {
       stage("Verifying parameter values"){
             steps{
                 script {
+                    echo "$params.Smoke_Test"
+                    if(params.Smoke_Test == true){
+                        echo "trueeeeeeeeeeeee"
+                    }else{
+                        echo "falseeeeeeeeeeeeeee"
+                    }
+                    
                     env.valid = "true";
 
 		            if(params.Region_Action.isEmpty() ||params.region_name.isEmpty() || params.linked_region_name.isEmpty() || params.linked_region_path.isEmpty() || params.package_name.isEmpty() || params.Port_Selection.isEmpty() || params.Tools_Build_ID.isEmpty()){
