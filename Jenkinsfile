@@ -20,7 +20,7 @@ pipeline {
     
     stages {
 
-      stage("Verifying parameter values"){
+      stage("Input Validation"){
             steps{
                 script {
                     echo "reggggggggggggggggggggggggggggg: "
@@ -35,7 +35,7 @@ pipeline {
                     
                     env.valid = "true";
 
-		    if(params.Region_Action.isEmpty() ||params.region_name.isEmpty() || params.linked_region_name.isEmpty() || params.linked_region_path.isEmpty() || params.package_name.isEmpty() || params.Port_Selection.isEmpty() || params.Tools_Build_ID.isEmpty()){
+		            if(params.Region_Action.isEmpty() ||params.region_name.isEmpty() || params.linked_region_name.isEmpty() || params.linked_region_path.isEmpty() || params.package_name.isEmpty() || params.Port_Selection.isEmpty() || params.Tools_Build_ID.isEmpty()){
                         env.valid = "false";
                     }
 
@@ -58,6 +58,37 @@ pipeline {
             }
         }
         
+        stage("[Linux] Checkout Region Create/Delete scripts"){
+            when {
+                expression { return env.valid.equals("true") }
+            }
+            steps{
+                echo "checkout steppppppppppppppppppppp"
+            }
+        }
+        
+        
+        stage("[Linux] Finding and Cofiguring Ports"){
+            when {
+                expression { return env.valid.equals("true") }
+            }
+            steps{
+                script {
+                    echo "configuring the portsssssssssssssssssssssssssssssssssss"
+                }
+            }
+        }
+        
+        stage("[Linux] Setup Region Create/Delete configs"){
+            when {
+                expression { return env.valid.equals("true") }
+            }
+            steps{
+                script {
+                    echo "setting up configssssssssssssssssssssssssss"
+                }
+            }
+        }
         
         
         stage("[Linux] Delete old IVP region"){
@@ -66,7 +97,7 @@ pipeline {
             }
             steps{
                 script {
-                    echo "deletion of region"
+                    echo "deletion of regionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
                 }
             }
         }
@@ -89,7 +120,7 @@ pipeline {
                     
                     echo "$db_type";
                     echo "$config_file";
-                    echo "creation of region";
+                    echo "creation of regionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn";
                     
                 }
             }
