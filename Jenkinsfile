@@ -35,7 +35,7 @@ pipeline {
                     
                     env.valid = "true";
 
-		            if(params.Region_Action.isEmpty() ||params.region_name.isEmpty() || params.linked_region_name.isEmpty() || params.linked_region_path.isEmpty() || params.package_name.isEmpty() || params.Port_Selection.isEmpty() || params.Tools_Build_ID.isEmpty()){
+		    if(params.Region_Action.isEmpty() ||params.region_name.isEmpty() || params.linked_region_name.isEmpty() || params.linked_region_path.isEmpty() || params.package_name.isEmpty() || params.Port_Selection.isEmpty() || params.Tools_Build_ID.isEmpty()){
                         env.valid = "false";
                     }
 
